@@ -1,0 +1,17 @@
+#!/bin/bash
+cd ~/bin/C-S/linux/1.2/
+
+var=($(proxybroker find --types HTTP -l 1000 --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+#echo ${var[0]}
+#echo ${var[1]}
+
+
+echo "proxies = [" > Proxies.toml
+
+for i in "${var[@]}"
+do
+	echo "\"http://$i\"," >> Proxies.toml
+done
+echo "]" >> Proxies.toml
+
+./generator_rust
