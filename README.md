@@ -1,5 +1,5 @@
 # bashS
-all my bash Scripts
+some of my bash Scripts
 
 ## Steam Account Generator related Stuff
 ```bash
