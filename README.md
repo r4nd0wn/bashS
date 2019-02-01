@@ -9,4 +9,4 @@ $ genstart
 1. proxybroker
 1. generator
 1. the generator must be in directory :~/bin/C-S/linux/1.2/
-  2. I'll probably add an option to specify the absolute path
+  1. I'll probably add an option to specify the absolute path
