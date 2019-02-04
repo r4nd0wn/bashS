@@ -1,14 +1,42 @@
 #!/bin/bash
 
+#save all the colors to variable
+RED='\033[0;31m'
+NC='\033[0m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+echo "Please make sure you have the following dependencies installed and the placed correctly:"
+echo -e "\e[4mDEPENDENCIES\e[24m"
+echo "pip install proxybroker"
+echo "C-S must be cloned into ~/bin/"
+echo "npm -i in ~/bin/C-S/1.2/"
 
+read -r -p "Are you sure? [y/N] " response
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+	echo ""
+else
+    exit
+fi
 
-echo "getting Proxylist for EU"
-var=($(proxybroker find --types HTTP -l 1000 --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+echo "Type in the Amount of Proxies you want to get and use an press Enter. Default = 100"
+read amount
+if [ -z "$amount" ]
+then 
+	amount=100
+	echo "getting $amount Proxies from EU"
+else 
+	echo "getting $amount Proxies for EU"
+fi
 
-#echo ${var[0]}
-#echo ${var[1]}
+echo -e "${ORANGE}The Proxies will be written to temp.txt if you want to use them any further. The file will be overwritten every time you start that script.${NC}"
 
-echo "writing Proxy List to Proxies.toml"
+proxybroker find --types HTTP -l $amount --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK |& tee temp.txt
+echo -e "${GREEN}temp writing completed${NC}"
+var=($(cat temp.txt | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+
+echo -e "${GREEN}changing directory and create Proxies.toml${NC}"
+cd ~/bin/C-S/linux/1.2/
 echo "proxies = [" > Proxies.toml
 
 for i in "${var[@]}"
@@ -18,8 +46,8 @@ done
 echo "\"http://0.0.0.0:0\"" >> Proxies.toml
 echo "]" >> Proxies.toml
 
-echo "changing current directory to ~/bin/C-S/linux/1.2/"
-cd ~/bin/C-S/linux/1.2/
+echo -e "${GREEN}Proxies.toml has been created${NC}"
+
 
 echo "starting the generator"
 

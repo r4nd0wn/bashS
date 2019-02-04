@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Tape in a amount"
+read amount
+echo "you typed in $amount"
+read nothing
+
