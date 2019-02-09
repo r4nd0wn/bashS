@@ -1,0 +1,27 @@
+
+#!/bin/bash
+
+cd ~/bin/God01
+pm2 start GODLY.js
+cd ~/bin/God02
+pm2 start GODLY.js
+cd ~/bin/God03    
+pm2 start GODLY.js
+cd ~/bin/God04    
+pm2 start GODLY.js
+cd ~/bin/God05    
+pm2 start GODLY.js
+cd ~/bin/God06    
+pm2 start GODLY.js
+cd ~/bin/God07    
+pm2 start GODLY.js
+cd ~/bin/God08    
+pm2 start GODLY.js
+cd ~/bin/God09    
+pm2 start GODLY.js
+cd ~/bin/God10    
+pm2 start GODLY.js
+
+exit
+
+

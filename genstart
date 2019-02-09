@@ -36,7 +36,7 @@ echo -e "${GREEN}temp writing completed${NC}"
 var=($(cat temp.txt | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
 
 echo -e "${GREEN}changing directory and create Proxies.toml${NC}"
-cd ~/bin/C-S/linux/1.2/
+cd ~/bin/C-S/linux/1.3/
 echo "proxies = [" > Proxies.toml
 
 for i in "${var[@]}"
@@ -47,8 +47,13 @@ echo "\"http://0.0.0.0:0\"" >> Proxies.toml
 echo "]" >> Proxies.toml
 
 echo -e "${GREEN}Proxies.toml has been created${NC}"
-
-
-echo "starting the generator"
+echo "do you want to start the Generator?"
+read -r -p "Do you want to start the Generator? [y/N] " responsegen
+if [[ "$responsegen" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+        echo "starting the Generator"
+else
+    exit
+fi
 
 ./generator_rust

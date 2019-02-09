@@ -1,0 +1,192 @@
+#!/bin/bash
+
+#save all the colors to variable
+RED='\033[0;31m'
+NC='\033[0m'
+GREEN='\033[0;32m'
+ORANGE='\033[0;33m'
+echo "Please make sure you have the following dependencies installed and the placed correctly:"
+echo -e "\e[4mDEPENDENCIES\e[24m"
+echo "pip install proxybroker"
+echo "C-S must be cloned into ~/bin/"
+echo "npm -i in ~/bin/C-S/1.2/"
+
+
+amount=500
+
+echo -e "${ORANGE}The Proxies will be written to temp.txt if you want to use them any further. The file will be overwritten every time you start that script.${NC}"
+
+proxybroker find --types HTTP -l $amount --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK |& tee temp.txt
+echo -e "${GREEN}temp writing completed${NC}"
+var=($(cat temp.txt | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+
+echo -e "${GREEN}changing directory and create Proxies.toml${NC}"
+cd ~/bin/C-S/linux/1.3/
+echo "proxies = [" > Proxies.toml
+
+for i in "${var[@]}"
+do
+	echo "\"http://$i\"," >> Proxies.toml
+done
+echo "\"http://0.0.0.0:0\"" >> Proxies.toml
+echo "]" >> Proxies.toml
+
+echo -e "${GREEN}Proxies.toml has been created${NC}"
+echo "do you want to start the Generator?"
+
+./generator_rust
+cd ~/bin/bashS/
+echo -e "${ORANGE}The Proxies will be written to temp.txt if you want to use them any further. The file will be overwritten every time you start that script.${NC}"
+
+proxybroker find --types HTTP -l $amount --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK |& tee temp.txt
+echo -e "${GREEN}temp writing completed${NC}"
+var=($(cat temp.txt | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+
+echo -e "${GREEN}changing directory and create Proxies.toml${NC}"
+cd ~/bin/C-S/linux/1.3/
+echo "proxies = [" > Proxies.toml
+
+for i in "${var[@]}"
+do
+        echo "\"http://$i\"," >> Proxies.toml
+done
+echo "\"http://0.0.0.0:0\"" >> Proxies.toml
+echo "]" >> Proxies.toml
+
+echo -e "${GREEN}Proxies.toml has been created${NC}"
+echo "do you want to start the Generator?"
+
+./generator_rust
+cd ~/bin/bashS/
+echo -e "${ORANGE}The Proxies will be written to temp.txt if you want to use them any further. The file will be overwritten every time you start that script.${NC}"
+
+proxybroker find --types HTTP -l $amount --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK |& tee temp.txt
+echo -e "${GREEN}temp writing completed${NC}"
+var=($(cat temp.txt | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+
+echo -e "${GREEN}changing directory and create Proxies.toml${NC}"
+cd ~/bin/C-S/linux/1.3/
+echo "proxies = [" > Proxies.toml
+
+for i in "${var[@]}"
+do
+        echo "\"http://$i\"," >> Proxies.toml
+done
+echo "\"http://0.0.0.0:0\"" >> Proxies.toml
+echo "]" >> Proxies.toml
+
+echo -e "${GREEN}Proxies.toml has been created${NC}"
+echo "do you want to start the Generator?"
+
+./generator_rust
+cd ~/bin/bashS/
+echo -e "${ORANGE}The Proxies will be written to temp.txt if you want to use them any further. The file will be overwritten every time you start that script.${NC}"
+
+proxybroker find --types HTTP -l $amount --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK |& tee temp.txt
+echo -e "${GREEN}temp writing completed${NC}"
+var=($(cat temp.txt | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+
+echo -e "${GREEN}changing directory and create Proxies.toml${NC}"
+cd ~/bin/C-S/linux/1.3/
+echo "proxies = [" > Proxies.toml
+
+for i in "${var[@]}"
+do
+        echo "\"http://$i\"," >> Proxies.toml
+done
+echo "\"http://0.0.0.0:0\"" >> Proxies.toml
+echo "]" >> Proxies.toml
+
+echo -e "${GREEN}Proxies.toml has been created${NC}"
+echo "do you want to start the Generator?"
+
+./generator_rust
+cd ~/bin/bashS/
+echo -e "${ORANGE}The Proxies will be written to temp.txt if you want to use them any further. The file will be overwritten every time you start that script.${NC}"
+
+proxybroker find --types HTTP -l $amount --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK |& tee temp.txt
+echo -e "${GREEN}temp writing completed${NC}"
+var=($(cat temp.txt | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+
+echo -e "${GREEN}changing directory and create Proxies.toml${NC}"
+cd ~/bin/C-S/linux/1.3/
+echo "proxies = [" > Proxies.toml
+
+for i in "${var[@]}"
+do
+        echo "\"http://$i\"," >> Proxies.toml
+done
+echo "\"http://0.0.0.0:0\"" >> Proxies.toml
+echo "]" >> Proxies.toml
+
+echo -e "${GREEN}Proxies.toml has been created${NC}"
+echo "do you want to start the Generator?"
+
+./generator_rust
+cd ~/bin/bashS/
+echo -e "${ORANGE}The Proxies will be written to temp.txt if you want to use them any further. The file will be overwritten every time you start that script.${NC}"
+
+proxybroker find --types HTTP -l $amount --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK |& tee temp.txt
+echo -e "${GREEN}temp writing completed${NC}"
+var=($(cat temp.txt | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+
+echo -e "${GREEN}changing directory and create Proxies.toml${NC}"
+cd ~/bin/C-S/linux/1.3/
+echo "proxies = [" > Proxies.toml
+
+for i in "${var[@]}"
+do
+        echo "\"http://$i\"," >> Proxies.toml
+done
+echo "\"http://0.0.0.0:0\"" >> Proxies.toml
+echo "]" >> Proxies.toml
+
+echo -e "${GREEN}Proxies.toml has been created${NC}"
+echo "do you want to start the Generator?"
+
+./generator_rust
+cd ~/bin/bashS/
+echo -e "${ORANGE}The Proxies will be written to temp.txt if you want to use them any further. The file will be overwritten every time you start that script.${NC}"
+
+proxybroker find --types HTTP -l $amount --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK |& tee temp.txt
+echo -e "${GREEN}temp writing completed${NC}"
+var=($(cat temp.txt | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+
+echo -e "${GREEN}changing directory and create Proxies.toml${NC}"
+cd ~/bin/C-S/linux/1.3/
+echo "proxies = [" > Proxies.toml
+
+for i in "${var[@]}"
+do
+        echo "\"http://$i\"," >> Proxies.toml
+done
+echo "\"http://0.0.0.0:0\"" >> Proxies.toml
+echo "]" >> Proxies.toml
+
+echo -e "${GREEN}Proxies.toml has been created${NC}"
+echo "do you want to start the Generator?"
+
+./generator_rust
+cd ~/bin/bashS/
+
+echo -e "${ORANGE}The Proxies will be written to temp.txt if you want to use them any further. The file will be overwritten every time you start that script.${NC}"
+
+proxybroker find --types HTTP -l $amount --countries BE BG CZ DK DE EE IE EL ES FR HR IT CY LV LT LU HU MT NL AT PL PT RO SI SK FI SE UK |& tee temp.txt
+echo -e "${GREEN}temp writing completed${NC}"
+var=($(cat temp.txt | grep -Po [0-9]+.[0-9]+.[0-9]+.[0-9]+:[0-9]+))
+
+echo -e "${GREEN}changing directory and create Proxies.toml${NC}"
+cd ~/bin/C-S/linux/1.3/
+echo "proxies = [" > Proxies.toml
+
+for i in "${var[@]}"
+do
+        echo "\"http://$i\"," >> Proxies.toml
+done
+echo "\"http://0.0.0.0:0\"" >> Proxies.toml
+echo "]" >> Proxies.toml
+
+echo -e "${GREEN}Proxies.toml has been created${NC}"
+echo "do you want to start the Generator?"
+
+./generator_rust
